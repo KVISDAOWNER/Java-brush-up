@@ -55,9 +55,12 @@ public class ChessBoard {
 
     public void PrintBoard(){
         for (var row: board) {
+            System.out.printf("|\t");
             for (var square: row) {
                 if(square != null)
-                    System.out.printf(square.toString() + "\t");
+                    System.out.printf(square.toString() + "\t|\t");
+                else
+                    System.out.printf("\t\t|\t");
             }
             System.out.printf("\n");
         }
