@@ -5,6 +5,10 @@ abstract class ChessPiece {
     protected int x;
     protected int y;
 
+    ChessPiece(String color){
+        this.color = color;
+    }
+
     public String getColor(){
         return color;
     };
@@ -16,5 +20,7 @@ abstract class ChessPiece {
     }
 
     public abstract boolean move(int x, int y);
+
+    public abstract String toString();
 
 }
