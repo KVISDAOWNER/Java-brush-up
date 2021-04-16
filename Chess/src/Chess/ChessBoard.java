@@ -34,9 +34,8 @@ public class ChessBoard {
 
     private ChessPiece[] CreateFrontRow(String color){
         ChessPiece[] row = new ChessPiece[width];
-        for (var square: row
-             ) {
-            square = new Pawn(color);
+        for (int i = 0; i < width; i++){
+            row[i] = new Pawn(color);
         }
         return row;
     }
