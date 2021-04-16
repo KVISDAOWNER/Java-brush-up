@@ -6,11 +6,6 @@ public class Pawn extends ChessPiece{
     }
 
     @Override
-    public boolean move(int x, int y) {
-        return false;
-    }
-
-    @Override
     public String toString() {
         if(color=="White")
             return "\u001B[37mPawn\u001B[0m";
@@ -18,5 +13,28 @@ public class Pawn extends ChessPiece{
             return "\u001B[30mPawn\u001B[0m";
         else
             return "N/A";
+    }
+
+    @Override
+    public boolean canMove(int x1, int y1, int x2, int y2, ChessPiece enemyPiece) {
+        if(color.equals("White")){
+            if(x1-x2 == -1 && y1 == y2)
+                return true;
+            else if (x1 == 1 && x2 == 3) {//first move
+                return true;
+            }
+            else if (x1-x2 == -1 && Math.abs(y1-y2) == 1 && enemyPiece != null)
+                return true;
+        }
+        else if(color.equals("Black")){
+            if(x1-x2 == 1 && y1 == y2)
+                return true;
+            else if (x1 == 6 && x2 == 4) {//first move
+                return true;
+            }
+            else if (x1-x2 == 1 && Math.abs(y1-y2) == 1 && enemyPiece != null)
+                return true;
+        }
+        return false; //Default return false
     }
 }

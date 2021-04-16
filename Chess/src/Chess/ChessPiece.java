@@ -2,8 +2,6 @@ package Chess;
 
 abstract class ChessPiece {
     protected String color;
-    protected int x;
-    protected int y;
 
     ChessPiece(String color){
         this.color = color;
@@ -12,15 +10,8 @@ abstract class ChessPiece {
     public String getColor(){
         return color;
     };
-    public int getX(){
-        return x;
-    }
-    public int getY(){
-        return y;
-    }
-
-    public abstract boolean move(int x, int y);
 
     public abstract String toString();
 
+    public abstract boolean canMove(int x1, int y1, int x2, int y2, ChessPiece enemyPiece);
 }
