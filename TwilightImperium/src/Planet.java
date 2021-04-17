@@ -5,8 +5,10 @@ public enum Planet {
     VEGAMINOR(1),
     VEGAMAJOR(1),
     HOPESEND(1),
-    RIGELII(1),
-    INDUSTREX(1);
+    RIGEL1(1),
+    RIGEL2(1),
+    INDUSTREX(1),
+    MECATOLREX(1);
 
     private final int production;
 
