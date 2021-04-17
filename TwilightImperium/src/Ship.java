@@ -8,6 +8,7 @@ public enum Ship implements Unit {
     private int combat_value;
     private int move_speed;
     private int capacity;
+    private Player ownedBy;
 
     Ship(int res_cost, int combat_value, int move_speed, int capacity){
         this.res_cost = res_cost;
@@ -15,6 +16,14 @@ public enum Ship implements Unit {
         this.move_speed = move_speed;
         this.capacity = capacity;
     }
+
+    public void setOwner(Player player){ //Constructor can't take outside input
+        if(ownedBy != null)
+            ownedBy = player;
+        else
+            throw new PlayerAlreadySetException();
+    }
+
 
     @Override
     public int getResCost() {
@@ -34,5 +43,11 @@ public enum Ship implements Unit {
     @Override
     public int getCapacity() {
         return capacity;
+    }
+}
+
+class PlayerAlreadySetException extends IllegalArgumentException{
+    PlayerAlreadySetException(){
+        super("Player all ready set");
     }
 }
