@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private Race race;
     private Color color;
+
     Player(Race r, Color c){
         this("Player", r, c);
     }

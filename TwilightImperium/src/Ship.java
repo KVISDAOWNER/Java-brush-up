@@ -1,8 +1,8 @@
 public enum Ship implements Unit {
-    Destroyer(1,9,2,0),
-    Cruiser(2,7,2,0),
-    Carrier(3,9,1,6),
-    Dreadnought(5,5,1,0);
+    DESTROYER(1,9,2,0),
+    CRUISER(2,7,2,0),
+    CARRIER(3,9,1,6),
+    DREADNOUGHT(5,5,1,0);
 
     private int res_cost;
     private int combat_value;
