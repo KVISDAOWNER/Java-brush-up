@@ -4,7 +4,10 @@ abstract class ChessPiece {
     protected String color;
 
     ChessPiece(String color){
-        this.color = color;
+        if(color.equals("Black") || color.equals("White"))
+            this.color = color;
+        else
+            throw new IllegalArgumentException(color);
     }
 
     public String getColor(){

@@ -7,12 +7,11 @@ public class Pawn extends ChessPiece{
 
     @Override
     public String toString() {
-        if(color=="White")
+        if(color.equals("White"))
             return "\u001B[37mPawn\u001B[0m";
-        else if(color=="Black")
+        else if(color.equals("Black"))
             return "\u001B[30mPawn\u001B[0m";
-        else
-            return "N/A";
+        return "N/A";
     }
 
     @Override

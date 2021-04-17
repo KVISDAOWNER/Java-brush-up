@@ -7,9 +7,9 @@ public class Bishop extends ChessPiece{
 
     @Override
     public String toString() {
-        if(color=="White")
+        if(color.equals("White"))
             return "\u001B[37mBishop\u001B[0m";
-        else if(color=="Black")
+        else if(color.equals("Black"))
             return "\u001B[30mBishop\u001B[0m";
         else
             return "N/A";
