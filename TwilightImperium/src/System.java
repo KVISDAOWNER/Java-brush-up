@@ -31,6 +31,9 @@ public class System {
         return units;
     }
 
+    public Position getPosition() {
+        return pos;
+    }
 }
 
 class TooManyPlanetsException extends IllegalArgumentException {
