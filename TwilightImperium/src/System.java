@@ -6,10 +6,13 @@ public class System {
     private List<Unit> units = new ArrayList<>();
     private Position pos;
 
-    System(List<Planet> ns, List<Unit> us, Position p) {
+    System(List<Planet> ns, Position p) {
         if (ns.size() > 3)
             throw new TooManyPlanetsException(ns.size());
         this.neighbors = ns;
+    }
+    System(List<Planet> ns, List<Unit> us, Position p) {
+        this(ns, p);
         this.units = us;
     }
 
@@ -27,6 +30,7 @@ public class System {
     public List<Unit> getUnits() {
         return units;
     }
+
 }
 
 class TooManyPlanetsException extends IllegalArgumentException {
