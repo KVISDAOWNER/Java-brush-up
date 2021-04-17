@@ -1,8 +1,8 @@
 public enum Ship implements Unit {
-    DESTROYER(1,9,2,0),
-    CRUISER(2,7,2,0),
-    CARRIER(3,9,1,6),
-    DREADNOUGHT(5,5,1,0);
+    DESTROYER(1, 9, 2, 0),
+    CRUISER(2, 7, 2, 0),
+    CARRIER(3, 9, 1, 6),
+    DREADNOUGHT(5, 5, 1, 0);
 
     private int res_cost;
     private int combat_value;
@@ -10,15 +10,15 @@ public enum Ship implements Unit {
     private int capacity;
     private Player ownedBy;
 
-    Ship(int res_cost, int combat_value, int move_speed, int capacity){
+    Ship(int res_cost, int combat_value, int move_speed, int capacity) {
         this.res_cost = res_cost;
         this.combat_value = combat_value;
         this.move_speed = move_speed;
         this.capacity = capacity;
     }
 
-    public void setOwner(Player player){ //Constructor can't take outside input
-        if(ownedBy != null)
+    public void setOwner(Player player) { //Constructor can't take outside input
+        if (ownedBy != null)
             ownedBy = player;
         else
             throw new PlayerAlreadySetException();
@@ -46,8 +46,8 @@ public enum Ship implements Unit {
     }
 }
 
-class PlayerAlreadySetException extends IllegalArgumentException{
-    PlayerAlreadySetException(){
+class PlayerAlreadySetException extends IllegalArgumentException {
+    PlayerAlreadySetException() {
         super("Player all ready set");
     }
 }

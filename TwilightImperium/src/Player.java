@@ -5,10 +5,11 @@ public class Player {
     private Race race;
     private Color color;
 
-    Player(Race r, Color c){
+    Player(Race r, Color c) {
         this("Player", r, c);
     }
-    Player(String n, Race r, Color c){
+
+    Player(String n, Race r, Color c) {
         name = n;
         race = r;
         color = c;
@@ -41,7 +42,7 @@ public class Player {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return color.toString() + ": " + name;
     }
 }

@@ -6,31 +6,31 @@ public class System {
     private List<Unit> units = new ArrayList<>();
     private Position pos;
 
-    System(List<Planet> ns, List<Unit> us, Position p){
-        if(ns.size() > 3)
+    System(List<Planet> ns, List<Unit> us, Position p) {
+        if (ns.size() > 3)
             throw new TooManyPlanetsException(ns.size());
         this.neighbors = ns;
         this.units = us;
     }
 
-    public void enter(Unit u){
+    public void enter(Unit u) {
         units.add(u);
     }
 
-    public void leave(Unit u){
+    public void leave(Unit u) {
         units.remove(u);
 
         //flex way :D
         //units = units.stream().filter(s -> !s.equals(u)).collect(Collectors.toList());
     }
 
-    public List<Unit> getUnits(){
+    public List<Unit> getUnits() {
         return units;
     }
 }
 
-class TooManyPlanetsException extends IllegalArgumentException{
-    TooManyPlanetsException(int planets){
+class TooManyPlanetsException extends IllegalArgumentException {
+    TooManyPlanetsException(int planets) {
         super("Illegal number of planets. Received " + planets + " planets");
     }
 }

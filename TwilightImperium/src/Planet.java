@@ -9,11 +9,12 @@ public enum Planet {
     INDUSTREX(1);
 
     private final int production;
-    Planet(int production){
+
+    Planet(int production) {
         this.production = production;
     }
 
-    int getResource(){
+    int getResource() {
         return production;
     }
 }
