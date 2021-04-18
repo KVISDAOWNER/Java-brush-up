@@ -1,4 +1,4 @@
 package Galaxy;
 
-class IllegalCenterException extends RuntimeException {
+public class IllegalCenterException extends Exception {
 }

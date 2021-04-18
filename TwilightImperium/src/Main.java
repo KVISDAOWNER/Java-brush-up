@@ -1,4 +1,5 @@
-import Galaxy.Galaxy;
+import Galaxy.*;
+import IO.Scoreboard;
 import Planets.Planet;
 
 import java.util.ArrayList;
@@ -13,10 +14,15 @@ public class Main {
 
         java.lang.System.out.println(planets);
 
-        Galaxy g = new Galaxy();
-        java.lang.System.out.println(g.getShips(g.getBlue()));
-        java.lang.System.out.println(g.getShips(g.getRed()));
+        Galaxy g = null;
+        try {
+            g = new Galaxy();
+        } catch (DuplicatePlanetsException | IllegalCenterException | MoreThan3PlanetsException e) {
+            e.printStackTrace();
+        }
+        java.lang.System.out.println(g.getShipsSorted(g.getBluePlayer()));
+        java.lang.System.out.println(g.getShipsSorted(g.getRedPlayer()));
 
-
+        Scoreboard.writeScoreboard(g);
     }
 }

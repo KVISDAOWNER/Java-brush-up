@@ -1,4 +1,4 @@
 package Galaxy;
 
-class MoreThan3PlanetsException extends RuntimeException {
+public class MoreThan3PlanetsException extends Exception {
 }

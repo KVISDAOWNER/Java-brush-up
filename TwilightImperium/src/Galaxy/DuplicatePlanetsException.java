@@ -1,4 +1,4 @@
 package Galaxy;
 
-class DuplicatePlanetsException extends RuntimeException {
+public class DuplicatePlanetsException extends Exception {
 }

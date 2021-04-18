@@ -22,7 +22,7 @@ public class Galaxy {
     private Player blue;
     private Player red;
 
-    public Galaxy() { //Default map setup
+    public Galaxy() throws IllegalCenterException, MoreThan3PlanetsException, DuplicatePlanetsException { //Default map setup
         blue = new Player("Crassus", Race.THE_EMIRATES_OF_HACAN, Color.Blue);
         red = new Player("Pompey", Race.THE_FEDERATION_OF_SOL, Color.Red);
 
@@ -31,11 +31,11 @@ public class Galaxy {
         isLegal();
     }
 
-    public Player getBlue(){
+    public Player getBluePlayer(){
         return blue;
     }
 
-    public Player getRed(){
+    public Player getRedPlayer(){
         return red;
     }
 
@@ -113,7 +113,7 @@ public class Galaxy {
         return s;
     }
 
-    private boolean isLegal(){
+    private boolean isLegal() throws IllegalCenterException, MoreThan3PlanetsException, DuplicatePlanetsException {
         //The center system must have exactly one planet named Mecatol Rex
         var centerPlanets = getSystem(Position.CENTER)
                 .getPlanets();
@@ -140,7 +140,7 @@ public class Galaxy {
         return true;
     }
 
-    private List<Planet> getPlanets(){
+    public List<Planet> getPlanets(){
         return systems
                 .stream()
                 .map(s->s.getPlanets())
@@ -148,7 +148,16 @@ public class Galaxy {
                 .collect(Collectors.toList());
     }
 
-    public List<Unit> getShips(Player p){
+    public List<Planet> getPlanets(Player player){
+        return systems
+                .stream()
+                .filter(s -> s.controlledBy() == player)
+                .map(s->s.getPlanets())
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+
+    public List<Unit> getShipsSorted(Player p){
         return systems
                 .stream()
                 .map(sys -> sys.getUnits())
