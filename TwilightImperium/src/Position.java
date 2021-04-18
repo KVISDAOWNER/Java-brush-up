@@ -4,5 +4,6 @@ public enum Position {
     SOUTH_EAST,
     SOUTH,
     SOUTH_WEST,
-    NORTH_WEST;
+    NORTH_WEST,
+    CENTER;
 }
