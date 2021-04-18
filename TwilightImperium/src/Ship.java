@@ -1,4 +1,4 @@
-public class Ship implements Unit {
+public class Ship implements Unit, Comparable<Ship> {
 
     private Player ownedBy;
 
@@ -33,6 +33,34 @@ public class Ship implements Unit {
     @Override
     public int getCapacity() {
         return ship.capacity;
+    }
+
+    @Override
+    public Player getOwner() {
+        return ownedBy;
+    }
+
+    public String toString(){
+        if(ownedBy.getColor().equals(Color.Blue))
+            return ANSI_BLUE + ship.toString() + ANSI_RESET;
+        else if(ownedBy.getColor().equals(Color.Red))
+            return ANSI_RED + ship.toString() + ANSI_RESET;
+        else
+            return ship.toString();
+    }
+
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
+
+    @Override
+    public int compareTo(Ship o) {
+        int combatCmp = o.getCombatValue() - getCombatValue();
+        if(combatCmp != 0) //difference in combat value
+            return combatCmp;
+        else //they share combat value
+            return o.getResCost() - getResCost(); //then more expensive must appear first
     }
 }
 

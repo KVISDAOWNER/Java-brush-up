@@ -1,18 +1,35 @@
-import java.util.ArrayList;
-import java.util.List;
+package Galaxy;
 
+import javax.swing.text.Position;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Galaxy {
     //Overvej andet end list - måske en form for set (så der ikke kan være duplicates?
     List<System> systems = new ArrayList<>();
 
-    Galaxy() { //Default map setup
-        Player blue = new Player(Race.THE_CLAN_OF_SAAR, Color.Blue);
-        Player red = new Player(Race.THE_EMIRATES_OF_HACAN, Color.Red);
+    private Player blue;
+    private Player red;
+
+    public Galaxy() { //Default map setup
+        blue = new Player("Crassus", Race.THE_EMIRATES_OF_HACAN, Color.Blue);
+        red = new Player("Pompey", Race.THE_FEDERATION_OF_SOL, Color.Red);
 
         spawnDefaultSystems();
         spawnDefaultShips(blue, red);
+        isLegal();
+    }
+
+    public Player getBlue(){
+        return blue;
+    }
+
+    public Player getRed(){
+        return red;
     }
 
     private void spawnDefaultSystems(){
@@ -38,8 +55,6 @@ public class Galaxy {
         systems.add( new System(southPlanets, Position.SOUTH));
 
         List<Planet> southWestPlanets = new ArrayList<>();
-        southWestPlanets.add(Planet.RIGEL1);
-        southWestPlanets.add(Planet.RIGEL2);
         systems.add( new System(southWestPlanets, Position.SOUTH_WEST));
 
         List<Planet> northWestPlanets = new ArrayList<>();
@@ -66,6 +81,7 @@ public class Galaxy {
                 .orElseThrow(); //throw if no match
     }
 
+
     private Ship spawnShip(String shipName, Player p){
         Ship s;
 
@@ -89,4 +105,51 @@ public class Galaxy {
 
         return s;
     }
+
+    private boolean isLegal(){
+        //The center system must have exactly one planet named Mecatol Rex
+        var centerPlanets = getSystem(Position.CENTER)
+                .getPlanets();
+        var mecatolrex = centerPlanets
+                .stream()
+                .filter(p -> p.equals(Planet.MECATOLREX))
+                .findFirst()
+                .orElse(null);
+        if (mecatolrex == null || centerPlanets.size()>1)
+            throw new IllegalCenterException();
+
+
+        //Every planet belongs to at most one system.
+        var planets = getPlanets();
+
+        if(planets.size() != new HashSet<>(planets).size()) //set cannot have duplicates
+            throw new DuplicatePlanetsException();
+
+
+        //Every system has at most three planets.
+        if(systems.stream().anyMatch(s -> s.getPlanets().size() > 3))
+            throw new MoreThan3PlanetsException();
+
+        return true;
+    }
+
+    private List<Planet> getPlanets(){
+        return systems
+                .stream()
+                .map(s->s.getPlanets())
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+
+    public List<Unit> getShips(Player p){
+        return systems
+                .stream()
+                .map(sys -> sys.getUnits())
+                .flatMap(List::stream)
+                .filter(unit -> unit.getOwner().equals(p))
+                .sorted()
+                .collect(Collectors.toList());
+
+    }
 }
+
