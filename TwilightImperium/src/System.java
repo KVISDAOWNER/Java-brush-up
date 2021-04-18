@@ -10,6 +10,7 @@ public class System {
         if (ns.size() > 3)
             throw new TooManyPlanetsException(ns.size());
         this.neighbors = ns;
+        this.pos = p;
     }
     System(List<Planet> ns, List<Unit> us, Position p) {
         this(ns, p);
