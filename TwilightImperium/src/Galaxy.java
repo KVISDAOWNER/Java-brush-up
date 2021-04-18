@@ -11,11 +11,11 @@ public class Galaxy {
         Player blue = new Player(Race.THE_CLAN_OF_SAAR, Color.Blue);
         Player red = new Player(Race.THE_EMIRATES_OF_HACAN, Color.Red);
 
-        SpawnDefaultSystems();
-        SpawnDefaultShips(blue, red);
+        spawnDefaultSystems();
+        spawnDefaultShips(blue, red);
     }
 
-    private void SpawnDefaultSystems(){
+    private void spawnDefaultSystems(){
         List<Planet> centerPlanets = new ArrayList<>();
         centerPlanets.add(Planet.MECATOLREX);
         systems.add( new System(centerPlanets, Position.CENTER));
@@ -47,24 +47,23 @@ public class Galaxy {
         systems.add( new System(northWestPlanets, Position.NORTH_WEST));
     }
 
-    private void SpawnDefaultShips(Player blue, Player red){
-        System centerSys = systems.stream()
-                .filter(s -> s.getPosition().equals(Position.CENTER))  //filter returns a lazy (intermediate representation) stream so not inefficient - recall from functional programming?
+    private void spawnDefaultShips(Player blue, Player red){
+        var center = getSystem(Position.CENTER);
+        center.enter(spawnShip("DREADNOUGHT", blue));
+        center.enter(spawnShip("DREADNOUGHT", blue));
+        center.enter(spawnShip("DESTROYER", blue));
+
+        var north = getSystem(Position.NORTH);
+        north.enter(spawnShip("CRUISER", red));
+        north.enter(spawnShip("CRUISER", red));
+        north.enter(spawnShip("CARRIER", red));
+    }
+
+    private System getSystem(Position p){
+        return  systems.stream()
+                .filter(s -> s.getPosition().equals(p))  //filter returns a lazy (intermediate representation) stream so not inefficient - recall from functional programming?
                 .findFirst()
                 .orElseThrow(); //throw if no match
-
-        centerSys.enter(spawnShip("DREADNOUGHT", blue));
-        centerSys.enter(spawnShip("DREADNOUGHT", blue));
-        centerSys.enter(spawnShip("DESTROYER", blue));
-
-        System northSys = systems.stream()
-                .filter(s -> s.getPosition() //filter returns a lazy (intermediate representation) stream so not inefficient - recall from functional programming?
-                        .equals(Position.NORTH))
-                .findFirst()
-                .orElseThrow(); //throw if no match
-        northSys.enter(spawnShip("CRUISER", red));
-        northSys.enter(spawnShip("CRUISER", red));
-        northSys.enter(spawnShip("CARRIER", red));
     }
 
     private Ship spawnShip(String shipName, Player p){
