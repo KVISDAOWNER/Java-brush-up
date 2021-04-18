@@ -9,9 +9,10 @@ public class Ship implements Unit, Comparable<Ship> {
 
     private ShipType ship;
 
-    public Ship(ShipType s){
+    public Ship(ShipType s) {
         ship = s;
     }
+
     public void setOwner(Player player) { //Constructor can't take outside input
         if (ownedBy == null)
             ownedBy = player;
@@ -45,10 +46,10 @@ public class Ship implements Unit, Comparable<Ship> {
         return ownedBy;
     }
 
-    public String toString(){
-        if(ownedBy.getColor().equals(Color.Blue))
+    public String toString() {
+        if (ownedBy.getColor().equals(Color.Blue))
             return ANSI_BLUE + ship.toString() + ANSI_RESET;
-        else if(ownedBy.getColor().equals(Color.Red))
+        else if (ownedBy.getColor().equals(Color.Red))
             return ANSI_RED + ship.toString() + ANSI_RESET;
         else
             return ship.toString();
@@ -62,7 +63,7 @@ public class Ship implements Unit, Comparable<Ship> {
     @Override
     public int compareTo(Ship o) {
         int combatCmp = o.getCombatValue() - getCombatValue();
-        if(combatCmp != 0) //difference in combat value
+        if (combatCmp != 0) //difference in combat value
             return combatCmp;
         else //they share combat value
             return o.getResCost() - getResCost(); //then more expensive must appear first

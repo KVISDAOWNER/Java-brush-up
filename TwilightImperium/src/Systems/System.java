@@ -19,6 +19,7 @@ public class System {
         this.planets = ps;
         this.pos = p;
     }
+
     System(List<Planet> ps, List<Unit> us, Position p) {
         this(ps, p);
         this.units = us;
@@ -47,13 +48,13 @@ public class System {
         return pos;
     }
 
-    public Player controlledBy(){
+    public Player controlledBy() {
         boolean red = false;
         boolean blue = false;
 
         Player owner = null;
-        for (Unit u:units) {
-            if(u.getOwner().equals(owner) || owner == null) //same owner of unit or first owner of unit encountered
+        for (Unit u : units) {
+            if (u.getOwner().equals(owner) || owner == null) //same owner of unit or first owner of unit encountered
                 owner = u.getOwner();
             else //both have units in system
                 return null;
