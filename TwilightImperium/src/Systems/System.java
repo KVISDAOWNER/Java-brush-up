@@ -1,3 +1,9 @@
+package Systems;
+
+import Galaxy.Position;
+import Planets.Planet;
+import Units.Unit;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +12,7 @@ public class System {
     private List<Unit> units = new ArrayList<>();
     private Position pos;
 
-    System(List<Planet> ps, Position p) {
+    public System(List<Planet> ps, Position p) {
         if (ps.size() > 3)
             throw new TooManyPlanetsException(ps.size());
         this.planets = ps;
@@ -41,8 +47,3 @@ public class System {
     }
 }
 
-class TooManyPlanetsException extends IllegalArgumentException {
-    TooManyPlanetsException(int planets) {
-        super("Illegal number of planets. Received " + planets + " planets");
-    }
-}

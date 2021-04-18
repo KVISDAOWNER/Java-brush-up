@@ -1,3 +1,5 @@
+package Planets;
+
 public enum Planet {
     VELNOR(1),
     MIRAGE(1),

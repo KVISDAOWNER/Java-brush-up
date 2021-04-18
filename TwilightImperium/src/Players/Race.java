@@ -1,3 +1,5 @@
+package Players;
+
 public enum Race {
     THE_BARONY_OF_LETNEV,
     THE_CLAN_OF_SAAR,

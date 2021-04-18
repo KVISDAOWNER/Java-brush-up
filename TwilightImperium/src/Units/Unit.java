@@ -1,3 +1,7 @@
+package Units;
+
+import Players.Player;
+
 public interface Unit {
     int getResCost();
 
@@ -6,4 +10,6 @@ public interface Unit {
     int getMoveSpeed();
 
     int getCapacity();
+
+    Player getOwner();
 }

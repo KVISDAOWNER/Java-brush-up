@@ -1,3 +1,5 @@
+package Players;
+
 import java.util.Objects;
 
 public class Player {
@@ -5,11 +7,11 @@ public class Player {
     private Race race;
     private Color color;
 
-    Player(Race r, Color c) {
-        this("Player", r, c);
+    public Player(Race r, Color c) {
+        this("Players", r, c);
     }
 
-    Player(String n, Race r, Color c) {
+    public Player(String n, Race r, Color c) {
         name = n;
         race = r;
         color = c;

@@ -1,3 +1,5 @@
+package Galaxy;
+
 public enum Position {
     NORTH,
     NORTH_EAST,

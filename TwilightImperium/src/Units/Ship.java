@@ -1,10 +1,15 @@
+package Units;
+
+import Players.Color;
+import Players.Player;
+
 public class Ship implements Unit, Comparable<Ship> {
 
     private Player ownedBy;
 
     private ShipType ship;
 
-    Ship(ShipType s){
+    public Ship(ShipType s){
         ship = s;
     }
     public void setOwner(Player player) { //Constructor can't take outside input
@@ -64,8 +69,3 @@ public class Ship implements Unit, Comparable<Ship> {
     }
 }
 
-class PlayerAlreadySetException extends IllegalArgumentException {
-    PlayerAlreadySetException() {
-        super("Player all ready set");
-    }
-}
