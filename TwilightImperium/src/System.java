@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class System {
-    private List<Planet> neighbors = new ArrayList<>();
+    private List<Planet> planets = new ArrayList<>();
     private List<Unit> units = new ArrayList<>();
     private Position pos;
 
-    System(List<Planet> ns, Position p) {
-        if (ns.size() > 3)
-            throw new TooManyPlanetsException(ns.size());
-        this.neighbors = ns;
+    System(List<Planet> ps, Position p) {
+        if (ps.size() > 3)
+            throw new TooManyPlanetsException(ps.size());
+        this.planets = ps;
         this.pos = p;
     }
-    System(List<Planet> ns, List<Unit> us, Position p) {
-        this(ns, p);
+    System(List<Planet> ps, List<Unit> us, Position p) {
+        this(ps, p);
         this.units = us;
     }
 
@@ -30,6 +30,10 @@ public class System {
 
     public List<Unit> getUnits() {
         return units;
+    }
+
+    public List<Planet> getPlanets() {
+        return planets;
     }
 
     public Position getPosition() {
