@@ -1,4 +1,7 @@
-import Galaxy.*;
+import Galaxy.DuplicatePlanetsException;
+import Galaxy.Galaxy;
+import Galaxy.IllegalCenterException;
+import Galaxy.MoreThan3PlanetsException;
 import IO.Scoreboard;
 import Planets.Planet;
 

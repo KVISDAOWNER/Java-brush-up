@@ -4,10 +4,10 @@ import Planets.Planet;
 import Players.Color;
 import Players.Player;
 import Players.Race;
+import Systems.System;
 import Units.Ship;
 import Units.ShipType;
 import Units.Unit;
-import Systems.System;
 
 import java.util.ArrayList;
 import java.util.HashSet;
