@@ -1,4 +1,4 @@
-package Units;
+package units;
 
 class PlayerAlreadySetException extends IllegalArgumentException {
     PlayerAlreadySetException() {

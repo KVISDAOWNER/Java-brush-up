@@ -1,6 +1,6 @@
-package Units;
+package units;
 
-import Players.Player;
+import players.Player;
 
 public interface Unit {
     int getResCost();

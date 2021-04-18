@@ -1,9 +1,9 @@
-package Systems;
+package systems;
 
-import Galaxy.Position;
-import Planets.Planet;
-import Players.Player;
-import Units.Unit;
+import galaxy.Position;
+import planets.Planet;
+import players.Player;
+import units.Unit;
 
 import java.util.ArrayList;
 import java.util.List;

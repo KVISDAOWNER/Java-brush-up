@@ -1,4 +1,4 @@
-package Units;
+package units;
 
 public enum ShipType {
     DESTROYER(1, 9, 2, 0),

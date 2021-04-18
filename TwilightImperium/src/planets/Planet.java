@@ -1,4 +1,4 @@
-package Planets;
+package planets;
 
 public enum Planet {
     VELNOR(1),

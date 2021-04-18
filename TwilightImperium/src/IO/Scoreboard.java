@@ -1,6 +1,6 @@
 package IO;
 
-import Galaxy.Galaxy;
+import galaxy.Galaxy;
 
 import java.io.IOException;
 import java.io.OutputStream;

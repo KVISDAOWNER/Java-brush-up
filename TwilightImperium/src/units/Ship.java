@@ -1,7 +1,7 @@
-package Units;
+package units;
 
-import Players.Color;
-import Players.Player;
+import players.Color;
+import players.Player;
 
 public class Ship implements Unit, Comparable<Ship> {
 

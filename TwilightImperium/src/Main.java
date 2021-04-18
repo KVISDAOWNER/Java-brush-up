@@ -1,9 +1,9 @@
-import Galaxy.DuplicatePlanetsException;
-import Galaxy.Galaxy;
-import Galaxy.IllegalCenterException;
-import Galaxy.MoreThan3PlanetsException;
+import galaxy.DuplicatePlanetsException;
+import galaxy.Galaxy;
+import galaxy.IllegalCenterException;
+import galaxy.MoreThan3PlanetsException;
 import IO.Scoreboard;
-import Planets.Planet;
+import planets.Planet;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Galaxy;
+package galaxy;
 
 public enum Position {
     NORTH,

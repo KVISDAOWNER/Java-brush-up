@@ -1,4 +1,4 @@
-package Systems;
+package systems;
 
 class TooManyPlanetsException extends IllegalArgumentException {
     TooManyPlanetsException(int planets) {

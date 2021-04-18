@@ -1,13 +1,13 @@
-package Galaxy;
+package galaxy;
 
-import Planets.Planet;
-import Players.Color;
-import Players.Player;
-import Players.Race;
-import Systems.System;
-import Units.Ship;
-import Units.ShipType;
-import Units.Unit;
+import planets.Planet;
+import players.Color;
+import players.Player;
+import players.Race;
+import systems.System;
+import units.Ship;
+import units.ShipType;
+import units.Unit;
 
 import java.util.ArrayList;
 import java.util.HashSet;
