@@ -2,6 +2,7 @@ package Systems;
 
 import Galaxy.Position;
 import Planets.Planet;
+import Players.Player;
 import Units.Unit;
 
 import java.util.ArrayList;
@@ -44,6 +45,20 @@ public class System {
 
     public Position getPosition() {
         return pos;
+    }
+
+    public Player controlledBy(){
+        boolean red = false;
+        boolean blue = false;
+
+        Player owner = null;
+        for (Unit u:units) {
+            if(u.getOwner().equals(owner) || owner == null) //same owner of unit or first owner of unit encountered
+                owner = u.getOwner();
+            else //both have units in system
+                return null;
+        }
+        return owner;
     }
 }
 

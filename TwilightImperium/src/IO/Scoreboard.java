@@ -1,5 +1,7 @@
 package IO;
 
+import Galaxy.Galaxy;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -8,8 +10,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Scoreboard {
-    public static void test(){
-        writeToFile(Paths.get("scorboard.txt"), "your mom");
+    public static void writeScoreboard(Galaxy g){
+        String data = "Blue has: " + g.getPlanets(g.getBluePlayer()).toString();
+        data += "\n";
+        data += "Red has: " + g.getPlanets(g.getRedPlayer()).toString();
+        writeToFile(Paths.get("scoreboard.txt"), data);
     }
     private static void writeToFile(Path path, String content){
         try(OutputStream os = Files.newOutputStream(path)) {
