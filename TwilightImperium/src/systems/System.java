@@ -13,11 +13,11 @@ public class System {
     private List<Unit> units = new ArrayList<>();
     private Position pos;
 
-    public System(List<Planet> ps, Position p) {
-        if (ps.size() > 3)
-            throw new TooManyPlanetsException(ps.size());
-        this.planets = ps;
-        this.pos = p;
+    public System(List<Planet> planets, Position pos) {
+        if (planets.size() > 3)
+            throw new TooManyPlanetsException(planets.size());
+        this.planets = planets;
+        this.pos = pos;
     }
 
     System(List<Planet> ps, List<Unit> us, Position p) {

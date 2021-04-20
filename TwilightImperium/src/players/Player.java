@@ -7,14 +7,14 @@ public class Player {
     private Race race;
     private Color color;
 
-    public Player(Race r, Color c) {
-        this("players", r, c);
+    public Player(Race race, Color color) {
+        this("players", race, color);
     }
 
-    public Player(String n, Race r, Color c) {
-        name = n;
-        race = r;
-        color = c;
+    public Player(String name, Race race, Color color) {
+        this.name = name;
+        this.race = race;
+        this.color = color.c;
     }
 
     public String getName() {
