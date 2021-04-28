@@ -17,15 +17,16 @@ public class Main {
 
         java.lang.System.out.println(planets);
 
-        Galaxy g = null;
+        Galaxy galaxy = null;
         try {
-            g = new Galaxy();
+            galaxy = new Galaxy();
         } catch (DuplicatePlanetsException | IllegalCenterException | MoreThan3PlanetsException e) {
             e.printStackTrace();
         }
-        java.lang.System.out.println(g.getShipsSorted(g.getBluePlayer()));
-        java.lang.System.out.println(g.getShipsSorted(g.getRedPlayer()));
+        java.lang.System.out.println(galaxy.getShipsSorted(galaxy.getBluePlayer()));
+        java.lang.System.out.println(galaxy.getShipsSorted(galaxy.getRedPlayer()));
 
-        Scoreboard.writeScoreboard(g);
+        Scoreboard.writeScoreboard(galaxy);
+        
     }
 }
