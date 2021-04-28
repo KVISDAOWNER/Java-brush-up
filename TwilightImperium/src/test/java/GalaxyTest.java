@@ -4,6 +4,7 @@ import galaxy.IllegalCenterException;
 import galaxy.MoreThan3PlanetsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import planets.Planet;
 import units.Ship;
 import units.ShipType;
 import units.Unit;
@@ -43,5 +44,25 @@ public class GalaxyTest {
         expected.add(new Ship(ShipType.DREADNOUGHT, galaxy.getBluePlayer()));
 
         assertArrayEquals(ships.toArray(), expected.toArray());
+    }
+
+    @Test
+    void getRedPlanets() {
+        var planets = galaxy.getPlanets(galaxy.getRedPlayer());
+        List<Planet> expected = new ArrayList<>();
+        expected.add(Planet.VEGAMINOR);
+        expected.add(Planet.VEGAMAJOR);
+
+        assertArrayEquals(planets.toArray(), expected.toArray());
+    }
+
+    @Test
+    void getBluePlanets() {
+        var planets = galaxy.getPlanets(galaxy.getBluePlayer());
+        List<Planet> expected = new ArrayList<>();
+        expected.add(Planet.MECATOLREX);
+
+        assertArrayEquals(planets.toArray(), expected.toArray());
+
     }
 }
