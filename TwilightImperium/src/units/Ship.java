@@ -9,12 +9,13 @@ public class Ship implements Unit, Comparable<Ship> {
 
     private Player ownedBy;
 
-    private ShipType ship;
+    private final ShipType ship;
 
     public Ship(ShipType s, Player p) {
         this(s);
         ownedBy = p;
     }
+
     public Ship(ShipType s) {
         ship = s;
     }
@@ -50,6 +51,10 @@ public class Ship implements Unit, Comparable<Ship> {
     @Override
     public Player getOwner() {
         return ownedBy;
+    }
+
+    public ShipType getShipType() {
+        return ship;
     }
 
     public String toString() {

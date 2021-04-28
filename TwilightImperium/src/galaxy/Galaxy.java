@@ -82,7 +82,7 @@ public class Galaxy {
         north.enter(spawnShip("CARRIER", red));
     }
 
-    private System getSystem(Position p) {
+    public System getSystem(Position p) {
         return systems.stream()
                 .filter(s -> s.getPosition().equals(p))  //filter returns a lazy (intermediate representation) stream so not inefficient - recall from functional programming?
                 .findFirst()
