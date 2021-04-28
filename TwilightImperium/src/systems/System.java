@@ -1,6 +1,7 @@
 package systems;
 
 import galaxy.Position;
+import misc.Die;
 import planets.Planet;
 import players.Player;
 import units.Unit;
@@ -25,6 +26,12 @@ public class System {
     public System(List<Planet> ps, List<Unit> us, Position p) {
         this(ps, p);
         this.units = us;
+    }
+
+
+    public Player battle(){
+        Die tenSided = new Die(1,10);
+        throw new UnsupportedOperationException();
     }
 
     public void enter(Unit u) {
