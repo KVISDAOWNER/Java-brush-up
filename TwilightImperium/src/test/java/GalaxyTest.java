@@ -24,6 +24,17 @@ public class GalaxyTest {
         }
     }
     @Test
+    void getRedShipsSorted() {
+        var ships = galaxy.getShipsSorted(galaxy.getRedPlayer());
+        List<Unit> expected = new ArrayList<>();
+        expected.add(new Ship(ShipType.CARRIER, galaxy.getRedPlayer()));
+        expected.add(new Ship(ShipType.CRUISER, galaxy.getRedPlayer()));
+        expected.add(new Ship(ShipType.CRUISER, galaxy.getRedPlayer()));
+
+        assertArrayEquals(ships.toArray(), expected.toArray());
+    }
+
+    @Test
     void getBlueShipsSorted() {
         var ships = galaxy.getShipsSorted(galaxy.getBluePlayer());
         List<Unit> expected = new ArrayList<>();
