@@ -14,7 +14,7 @@ public class Player {
     public Player(String name, Race race, Color color) {
         this.name = name;
         this.race = race;
-        this.color = color.c;
+        this.color = color;
     }
 
     public String getName() {
