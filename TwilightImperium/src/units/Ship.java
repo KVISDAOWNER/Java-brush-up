@@ -7,9 +7,12 @@ import java.util.Objects;
 
 public class Ship implements Unit, Comparable<Ship> {
 
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    private final ShipType ship;
     private Player ownedBy;
 
-    private final ShipType ship;
 
     public Ship(ShipType s, Player p) {
         this(s);
@@ -19,14 +22,6 @@ public class Ship implements Unit, Comparable<Ship> {
     public Ship(ShipType s) {
         ship = s;
     }
-
-    public void setOwner(Player player) { //Constructor can't take outside input
-        if (ownedBy == null)
-            ownedBy = player;
-        else
-            throw new PlayerAlreadySetException();
-    }
-
 
     @Override
     public int getResCost() {
@@ -53,6 +48,13 @@ public class Ship implements Unit, Comparable<Ship> {
         return ownedBy;
     }
 
+    public void setOwner(Player player) { //Constructor can't take outside input
+        if (ownedBy == null)
+            ownedBy = player;
+        else
+            throw new PlayerAlreadySetException();
+    }
+
     public ShipType getShipType() {
         return ship;
     }
@@ -65,11 +67,6 @@ public class Ship implements Unit, Comparable<Ship> {
         else
             return ship.toString();
     }
-
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_RESET = "\u001B[0m";
-
 
     @Override
     public int compareTo(Ship o) {
