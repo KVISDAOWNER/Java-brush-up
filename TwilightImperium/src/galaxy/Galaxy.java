@@ -151,7 +151,7 @@ public class Galaxy {
     public List<Planet> getPlanets(Player player) {
         return systems
                 .stream()
-                .filter(s -> s.controlledBy() == player)
+                .filter(s -> (s.controlledBy().size() == 1 && s.controlledBy().contains(player)))
                 .map(s -> s.getPlanets())
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
