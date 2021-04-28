@@ -6,7 +6,9 @@ import players.Player;
 import units.Unit;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class System {
     private List<Planet> planets = new ArrayList<>();
@@ -20,7 +22,7 @@ public class System {
         this.pos = pos;
     }
 
-    System(List<Planet> ps, List<Unit> us, Position p) {
+    public System(List<Planet> ps, List<Unit> us, Position p) {
         this(ps, p);
         this.units = us;
     }
@@ -48,18 +50,12 @@ public class System {
         return pos;
     }
 
-    public Player controlledBy() {
-        boolean red = false;
-        boolean blue = false;
-
-        Player owner = null;
-        for (Unit u : units) {
-            if (u.getOwner().equals(owner) || owner == null) //same owner of unit or first owner of unit encountered
-                owner = u.getOwner();
-            else //both have units in system
-                return null;
+    public Set<Player> controlledBy() {
+        Set<Player> players = new HashSet<>();
+        for (Unit unit : units) {
+            players.add(unit.getOwner());
         }
-        return owner;
+        return players;
     }
 }
 
