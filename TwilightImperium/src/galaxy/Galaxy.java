@@ -28,7 +28,8 @@ public class Galaxy {
 
         spawnDefaultSystems();
         spawnDefaultShips(blue, red);
-        isLegal();
+        if(!isLegal())
+            throw new RuntimeException("Galaxy not legal");
     }
 
     public Player getBluePlayer() {

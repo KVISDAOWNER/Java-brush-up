@@ -3,12 +3,18 @@ package units;
 import players.Color;
 import players.Player;
 
+import java.util.Objects;
+
 public class Ship implements Unit, Comparable<Ship> {
 
     private Player ownedBy;
 
     private ShipType ship;
 
+    public Ship(ShipType s, Player p) {
+        this(s);
+        ownedBy = p;
+    }
     public Ship(ShipType s) {
         ship = s;
     }
@@ -67,6 +73,19 @@ public class Ship implements Unit, Comparable<Ship> {
             return combatCmp;
         else //they share combat value
             return o.getResCost() - getResCost(); //then more expensive must appear first
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ship ship1 = (Ship) o;
+        return Objects.equals(ownedBy, ship1.ownedBy) && ship == ship1.ship;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ownedBy, ship);
     }
 }
 
